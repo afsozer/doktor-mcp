@@ -3,6 +3,8 @@
 > **v1 Sürüm Adayı** — Güncel sürüm için [package.json](package.json) ve [CHANGELOG.md](CHANGELOG.md) dosyalarına bakın.
 > Kontrol listesi için [docs/RELEASE_v1.md](docs/RELEASE_v1.md) dosyasına bakın.
 
+**Proje sayfası:** [avfatihsozer.com/projeler/doktor-mcp](https://avfatihsozer.com/projeler/doktor-mcp)
+
 `doktor-mcp`, hekimlere yönelik **kaynak-temelli hukuki bilgilendirme paketleri** üreten,
 bağımsız bir TypeScript/Node.js MCP iskeletidir. Kategorik nihai hukuki görüş vermez ve
 hekime ne yapacağını söylemez. Soruları resmî mevzuat metniyle ve gerekçeli yüksek mahkeme
