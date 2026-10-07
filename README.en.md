@@ -205,7 +205,7 @@ Legislation-facing MCP inputs accept an optional `sourceMode`:
 }
 ```
 
-`sourceMode` defaults to `"mock"`; that is, mock behavior is the default.
+`sourceMode` defaults to `"live"` (since 0.59.0); fixture data must be requested explicitly with `"mock"`.
 `search_health_legislation`, `get_legislation_provisions` and
 `prepare_doctor_legal_information_pack` can use `"live"`. The live information pack keeps the
 same MVP shape and adds `sourceUnavailable` only when the official legislation source cannot
@@ -678,7 +678,7 @@ Node.js 20 or later is required. You can run the package with `npx` without inst
 To add it to Claude Code:
 
 ```bash
-claude mcp add doktor -e DOKTOR_MCP_DEFAULT_SOURCE_MODE=live -- npx -y doktor-mcp
+claude mcp add doktor -- npx -y doktor-mcp
 ```
 
 Cache files are written to the user's cache directory: `DOKTOR_MCP_CACHE_DIR` if set,
@@ -686,16 +686,10 @@ otherwise `$XDG_CACHE_HOME/doktor-mcp` or `~/.cache/doktor-mcp`.
 
 ### Source mode
 
-`sourceMode` defaults to `"mock"`: if `sourceMode` is not specified in the tool call, the
-response contains fixture (fictional) data and the `mockDataWarning` field is added.
-
-You have two options for running in live mode:
-
-1. Add `sourceMode: "live"` to every tool call (the simplest way)
-2. Set the `DOKTOR_MCP_DEFAULT_SOURCE_MODE=live` environment variable in your MCP client configuration
-
-The second option makes `"live"` the default for all tool calls, so you do not need to specify
-`sourceMode` on every call.
+`sourceMode` defaults to `"live"` (since 0.59.0): if `sourceMode` is not specified in the tool
+call, queries go to the live official sources. To try fixture (fictional) data, pass
+`sourceMode: "mock"` in the call or set `DOKTOR_MCP_DEFAULT_SOURCE_MODE=mock`; the response then
+includes the `mockDataWarning` field.
 
 ### Example: Claude Desktop Configuration
 
@@ -704,10 +698,7 @@ The second option makes `"live"` the default for all tool calls, so you do not n
   "mcpServers": {
     "doktor-mcp": {
       "command": "npx",
-      "args": ["-y", "doktor-mcp"],
-      "env": {
-        "DOKTOR_MCP_DEFAULT_SOURCE_MODE": "live"
-      }
+      "args": ["-y", "doktor-mcp"]
     }
   }
 }
@@ -717,12 +708,12 @@ The second option makes `"live"` the default for all tool calls, so you do not n
 
 | Value | Meaning |
 |-------|--------|
-| `"mock"` | Default. Returns fixture (fictional) data. It is **not** real legislation or a real decision. |
-| `"live"` | Queries live official sources (mevzuat.gov.tr, Court of Cassation, Council of State). |
+| `"mock"` | Returns fixture (fictional) data. It is **not** real legislation or a real decision. |
+| `"live"` | Default. Queries live official sources (mevzuat.gov.tr, Court of Cassation, Council of State). |
 | `"snapshot"` | Uses a previously recorded snapshot of a live source. |
 
 If an invalid value is set (such as `DOKTOR_MCP_DEFAULT_SOURCE_MODE=production`),
-a warning is written to stderr and it falls back to `"mock"`.
+a warning is written to stderr and the default `"live"` is used.
 
 > **Note:** `DOKTOR_MCP_DEFAULT_SOURCE_MODE` is a more discoverable equivalent of
 > `DOKTOR_MCP_SOURCE_MODE`. Both set `sourceMode`; when both are set,

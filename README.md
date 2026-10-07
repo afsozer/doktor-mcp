@@ -206,7 +206,7 @@ Mevzuata-dönük MCP girdileri opsiyonel `sourceMode` kabul eder:
 }
 ```
 
-`sourceMode` varsayılan olarak `"mock"`'tur; yani mock davranışı varsayılandır.
+`sourceMode` varsayılan olarak `"live"`'dır (0.59.0'dan beri); fixture verisi için `"mock"` açıkça istenmelidir.
 `search_health_legislation`, `get_legislation_provisions` ve
 `prepare_doctor_legal_information_pack` `"live"` kullanabilir. Canlı bilgilendirme paketi
 aynı MVP şeklini korur ve `sourceUnavailable`'ı yalnızca resmî mevzuat kaynağı doğrulanmış
@@ -678,7 +678,7 @@ Node.js 20 ya da üstü gerekir. Paketi kurmadan `npx` ile çalıştırabilirsin
 eklemek için:
 
 ```bash
-claude mcp add doktor -e DOKTOR_MCP_DEFAULT_SOURCE_MODE=live -- npx -y doktor-mcp
+claude mcp add doktor -- npx -y doktor-mcp
 ```
 
 Önbellek dosyaları kullanıcının önbellek dizinine yazılır: `DOKTOR_MCP_CACHE_DIR` verilmişse
@@ -686,16 +686,10 @@ oraya, yoksa `$XDG_CACHE_HOME/doktor-mcp` ya da `~/.cache/doktor-mcp` altına.
 
 ### Kaynak modu
 
-`sourceMode` varsayılan olarak `"mock"`'tur — yani tool çağrısında `sourceMode`
-belirtilmezse, yanıt fixture (kurgu) verisi içerir ve `mockDataWarning` alanı eklenir.
-
-Canlı modda çalışmak için iki seçeneğiniz vardır:
-
-1. Her tool çağrısında `sourceMode: "live"` ekleyin (en basit yol)
-2. MCP istemci yapılandırmanızda `DOKTOR_MCP_DEFAULT_SOURCE_MODE=live` ortam değişkenini ayarlayın
-
-İkinci seçenek, tüm tool çağrıları için varsayılanı `"live"` yapar — böylece her çağrıda
-`sourceMode` belirtmenize gerek kalmaz.
+`sourceMode` varsayılan olarak `"live"`'dır (0.59.0'dan beri): tool çağrısında `sourceMode`
+belirtilmezse sorgular canlı resmî kaynaklara gider. Fixture (kurgu) verisiyle denemek için
+çağrıda `sourceMode: "mock"` verin ya da `DOKTOR_MCP_DEFAULT_SOURCE_MODE=mock` ortam
+değişkenini ayarlayın; bu durumda yanıta `mockDataWarning` alanı eklenir.
 
 ### Örnek: Claude Desktop Yapılandırması
 
@@ -704,10 +698,7 @@ Canlı modda çalışmak için iki seçeneğiniz vardır:
   "mcpServers": {
     "doktor-mcp": {
       "command": "npx",
-      "args": ["-y", "doktor-mcp"],
-      "env": {
-        "DOKTOR_MCP_DEFAULT_SOURCE_MODE": "live"
-      }
+      "args": ["-y", "doktor-mcp"]
     }
   }
 }
@@ -717,12 +708,12 @@ Canlı modda çalışmak için iki seçeneğiniz vardır:
 
 | Değer | Anlamı |
 |-------|--------|
-| `"mock"` | Varsayılan. Fixture (kurgu) verisi döner. Gerçek mevzuat veya karar **değildir**. |
-| `"live"` | Canlı resmî kaynaklardan sorgular (mevzuat.gov.tr, Yargıtay, Danıştay). |
+| `"mock"` | Fixture (kurgu) verisi döner. Gerçek mevzuat veya karar **değildir**. |
+| `"live"` | Varsayılan. Canlı resmî kaynaklardan sorgular (mevzuat.gov.tr, Yargıtay, Danıştay). |
 | `"snapshot"` | Önceden kaydedilmiş canlı kaynak snapshot'ını kullanır. |
 
 Geçersiz bir değer ayarlanırsa (`DOKTOR_MCP_DEFAULT_SOURCE_MODE=production` gibi),
-stderr'ye uyarı yazılır ve `"mock"`'a geri dönülür.
+stderr'ye uyarı yazılır ve varsayılan `"live"` kullanılır.
 
 > **Not:** `DOKTOR_MCP_DEFAULT_SOURCE_MODE`, `DOKTOR_MCP_SOURCE_MODE`'un daha keşfedilebilir
 > bir karşılığıdır. İkisi de `sourceMode`'u ayarlar; ikisi birden ayarlandığında

@@ -5,6 +5,9 @@
 - **npm paketi.** `npx -y doktor-mcp`; pakete yalnız `dist/`, README'ler, lisans, güvenlik ve
   değişiklik dosyaları girer. `engines` Node 20+, depo/ana sayfa/hata bağlantıları, yazar ve anahtar
   kelimeler eklendi; `package-lock.json` sürümü package.json ile eşitlendi (0.56.0 → 0.59.0).
+- **Varsayılan kaynak modu `live` (kırıcı değişiklik).** `sourceMode` verilmezse artık canlı resmî
+  kaynaklar sorgulanır; fixture verisi için `sourceMode: "mock"` ya da
+  `DOKTOR_MCP_DEFAULT_SOURCE_MODE=mock`. Testler `mock`'u vitest yapılandırmasında sabitler.
 - **Önbellek kullanıcı dizininde.** Mevzuat, mevzuat belgesi ve emsal önbellekleri artık çalışma
   dizinine (`./.cache`) değil `DOKTOR_MCP_CACHE_DIR`, `$XDG_CACHE_HOME/doktor-mcp` ya da
   `~/.cache/doktor-mcp` altına yazılır (MCP istemcileri sunucuyu yazılamayan dizinde başlatabiliyor).

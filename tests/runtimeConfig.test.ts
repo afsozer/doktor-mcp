@@ -139,16 +139,16 @@ describe("runtimeConfig", () => {
       expect(config.sourceMode).toBe("snapshot");
     });
 
-    it("should default to 'mock' when DOKTOR_MCP_DEFAULT_SOURCE_MODE is not set", () => {
+    it("should default to 'live' when DOKTOR_MCP_DEFAULT_SOURCE_MODE is not set", () => {
       const config = readConfig();
-      expect(config.sourceMode).toBe("mock");
+      expect(config.sourceMode).toBe("live");
     });
 
-    it("should fallback to 'mock' and log warning when DOKTOR_MCP_DEFAULT_SOURCE_MODE is invalid", () => {
+    it("should fallback to 'live' and log warning when DOKTOR_MCP_DEFAULT_SOURCE_MODE is invalid", () => {
       const stderrSpy = vi.spyOn(console, "error").mockImplementation(() => {});
       process.env.DOKTOR_MCP_DEFAULT_SOURCE_MODE = "production";
       const config = readConfig();
-      expect(config.sourceMode).toBe("mock");
+      expect(config.sourceMode).toBe("live");
       expect(stderrSpy).toHaveBeenCalledWith(
         expect.stringContaining('Invalid DOKTOR_MCP_DEFAULT_SOURCE_MODE value "production"')
       );

@@ -356,7 +356,7 @@ export function registerMedicalLegalTools(
   }, async (input) => jsonResult(withDataOrigin(await handlers.filter_reasoned_precedents(input))));
 
   server.registerTool("prepare_doctor_legal_information_pack", {
-    description: "PRIMARY ENTRY POINT — use this tool first for any physician legal question. Prepares a complete source-grounded legal information pack: classification, verbatim legislation provisions, verified high-court precedents, missing information, and lawyer review points. Returns a packId for follow-up drill-down. Set sourceMode:'live' to query official sources (mevzuat.gov.tr, Yargitay, Danistay); default mode returns clearly-marked mock fixture data for testing only. Example: { \"question\": \"Hasta tedaviyi reddederse hekimin sorumluluğu nedir?\", \"sourceMode\": \"live\" }",
+    description: "PRIMARY ENTRY POINT — use this tool first for any physician legal question. Prepares a complete source-grounded legal information pack: classification, verbatim legislation provisions, verified high-court precedents, missing information, and lawyer review points. Returns a packId for follow-up drill-down. Set sourceMode:'live' to query official sources (mevzuat.gov.tr, Yargitay, Danistay); this is the default mode; sourceMode='mock' returns clearly-marked fixture data for testing only. Example: { \"question\": \"Hasta tedaviyi reddederse hekimin sorumluluğu nedir?\", \"sourceMode\": \"live\" }",
     inputSchema: packInputSchema.shape
   }, async (input) => {
     const parsed = packInputSchema.parse(input);

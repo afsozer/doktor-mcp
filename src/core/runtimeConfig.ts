@@ -56,8 +56,8 @@ export const DoktorMcpConfigSchema = z.object({
   /** Assessment tone default */
   assessmentTone: z.enum(["strict", "grounded-advisory"]).default("grounded-advisory"),
 
-  /** Default source mode */
-  sourceMode: z.enum(["mock", "live", "snapshot"]).default("mock"),
+  /** Default source mode: live official sources unless configured otherwise */
+  sourceMode: z.enum(["mock", "live", "snapshot"]).default("live"),
 
   /** Retry configuration for live sources */
   retry: z.object({
@@ -152,7 +152,7 @@ const ENV_SETTERS: Record<string, ConfigSetter> = {
     if (v === "mock" || v === "live" || v === "snapshot") {
       c.sourceMode = v;
     } else {
-      console.error(`doktor-mcp: Invalid DOKTOR_MCP_DEFAULT_SOURCE_MODE value "${v}". Falling back to "mock".`);
+      console.error(`doktor-mcp: Invalid DOKTOR_MCP_DEFAULT_SOURCE_MODE value "${v}". Falling back to the default ("live").`);
     }
   }
 };

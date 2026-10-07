@@ -7,7 +7,8 @@ const testCacheDir = fileURLToPath(new URL("./.cache", import.meta.url));
 
 export default defineConfig({
   test: {
-    env: { DOKTOR_MCP_CACHE_DIR: testCacheDir },
+    // Testler ağa çıkmasın: paketin varsayılanı "live", testlerde "mock" sabit.
+    env: { DOKTOR_MCP_CACHE_DIR: testCacheDir, DOKTOR_MCP_DEFAULT_SOURCE_MODE: "mock" },
     testTimeout: 15000,
     coverage: {
       provider: "v8",

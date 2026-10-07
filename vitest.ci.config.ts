@@ -8,7 +8,8 @@ const testCacheDir = fileURLToPath(new URL("./.cache", import.meta.url));
 // CI-specific config: skip tests that require live network access
 export default defineConfig({
   test: {
-    env: { DOKTOR_MCP_CACHE_DIR: testCacheDir },
+    // Testler ağa çıkmasın: paketin varsayılanı "live", testlerde "mock" sabit.
+    env: { DOKTOR_MCP_CACHE_DIR: testCacheDir, DOKTOR_MCP_DEFAULT_SOURCE_MODE: "mock" },
     exclude: [
       "**/node_modules/**",
       "**/benchmark.test.ts",
