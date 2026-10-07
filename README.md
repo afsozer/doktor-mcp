@@ -913,5 +913,10 @@ Sürüm geçmişi için bkz. [CHANGELOG.md](./CHANGELOG.md).
 
 ## Lisans
 
-Tüm hakları saklıdır. Kaynak kod yalnızca inceleme amacıyla yayımlanmıştır;
-yazılı izin olmadan kullanılamaz, kopyalanamaz, değiştirilemez veya dağıtılamaz.
+GNU Affero Genel Kamu Lisansı sürüm 3 ile lisanslanmıştır (`AGPL-3.0-only`); tam
+metin [LICENSE](LICENSE) dosyasındadır. Yazılımı değiştirip ağ üzerinden başkalarına
+hizmet olarak sunarsanız, değiştirdiğiniz kaynak kodu da o kullanıcılara aynı lisansla
+sunmanız gerekir. Güvenlik açıklarının nasıl bildirileceği [SECURITY.md](SECURITY.md)
+dosyasında anlatılıyor.
+
+Telif hakkı © 2026 Alpaslan Fatih Sözer
