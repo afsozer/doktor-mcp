@@ -1,8 +1,9 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { join } from "node:path";
+import { cacheRoot } from "../core/cacheRoot.js";
 
-const CACHE_DIR = join(process.cwd(), ".cache", "precedents");
-const FULLTEXT_CACHE_DIR = join(process.cwd(), ".cache", "precedents-fulltext");
+const CACHE_DIR = join(cacheRoot(), "precedents");
+const FULLTEXT_CACHE_DIR = join(cacheRoot(), "precedents-fulltext");
 const TTL_MS = 60 * 60 * 1000; // 1 hour
 
 interface CacheEntry<T> {

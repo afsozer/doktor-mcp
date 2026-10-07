@@ -1,8 +1,9 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { join } from "node:path";
 import type { LegislationProvision } from "../contracts/legal.js";
+import { cacheRoot } from "../core/cacheRoot.js";
 
-const CACHE_DIR = join(process.cwd(), ".cache", "legislation");
+const CACHE_DIR = join(cacheRoot(), "legislation");
 
 interface LegislationCacheEntry {
   sourceId: string;

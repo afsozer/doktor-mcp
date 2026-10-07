@@ -1,8 +1,14 @@
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitest/config";
+
+// Testler önbelleği eskisi gibi depodaki .cache/ altında kullanır; paketlenmiş
+// sunucu ise kullanıcı dizinini (src/core/cacheRoot.ts) kullanır.
+const testCacheDir = fileURLToPath(new URL("./.cache", import.meta.url));
 
 // CI-specific config: skip tests that require live network access
 export default defineConfig({
   test: {
+    env: { DOKTOR_MCP_CACHE_DIR: testCacheDir },
     exclude: [
       "**/node_modules/**",
       "**/benchmark.test.ts",

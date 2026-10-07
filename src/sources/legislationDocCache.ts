@@ -6,8 +6,9 @@
  */
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { join, dirname } from "node:path";
+import { cacheRoot } from "../core/cacheRoot.js";
 
-const CACHE_DIR = join(process.cwd(), ".cache", "legislation-docs");
+const CACHE_DIR = join(cacheRoot(), "legislation-docs");
 
 interface CacheEntry {
   sourceId: string;
