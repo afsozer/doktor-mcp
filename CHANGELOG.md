@@ -1,7 +1,13 @@
 # Changelog
 
-## [Unreleased]
+## [0.59.0] — 2026-10-07 — Açık kaynak ve npm paketi
 
+- **npm paketi.** `npx -y doktor-mcp`; pakete yalnız `dist/`, README'ler, lisans, güvenlik ve
+  değişiklik dosyaları girer. `engines` Node 20+, depo/ana sayfa/hata bağlantıları, yazar ve anahtar
+  kelimeler eklendi; `package-lock.json` sürümü package.json ile eşitlendi (0.56.0 → 0.59.0).
+- **Önbellek kullanıcı dizininde.** Mevzuat, mevzuat belgesi ve emsal önbellekleri artık çalışma
+  dizinine (`./.cache`) değil `DOKTOR_MCP_CACHE_DIR`, `$XDG_CACHE_HOME/doktor-mcp` ya da
+  `~/.cache/doktor-mcp` altına yazılır (MCP istemcileri sunucuyu yazılamayan dizinde başlatabiliyor).
 - **Lisans AGPL-3.0-only oldu (7 Eki 2026).** "Tüm hakları saklıdır" yerine GNU Affero Genel
   Kamu Lisansı sürüm 3 (`LICENSE`); `package.json` ve README'ler güncellendi.
 - **`SECURITY.md` eklendi (7 Eki 2026).** Güvenlik bakımcısı, GitHub üzerinden gizli açık bildirimi,

@@ -597,8 +597,8 @@ same value as `court`) to state which adapter produced each decision.
 
 ### File-Based Cache
 
-`PrecedentCache` (`src/sources/precedentCache.ts`) caches live adapter results in
-`.cache/precedents/` with a one-hour TTL. Cache files are keyed by source, query and page size.
+`PrecedentCache` (`src/sources/precedentCache.ts`) caches live adapter results under
+`precedents/` in the cache directory (by default `~/.cache/doktor-mcp/precedents/`) with a one-hour TTL. Cache files are keyed by source, query and page size.
 Cache write errors are non-fatal.
 
 `smoke:precedents` supports three cache flags:
@@ -614,7 +614,7 @@ npm run smoke:precedents -- "aydınlatılmış rıza" --no-cache
 npm run smoke:precedents -- "aydınlatılmış rıza" --refresh
 ```
 
-`.cache/` is in `.gitignore` and is never committed.
+The cache lives outside the repository; `.cache/`, used by older versions, stays in `.gitignore`.
 
 ## Precedent Source Calibration
 
@@ -672,6 +672,20 @@ See `docs/PACK_AUDIT.md` for the full check reference.
 
 ## Production Setup
 
+### Installing from npm
+
+Node.js 20 or later is required. You can run the package with `npx` without installing it.
+To add it to Claude Code:
+
+```bash
+claude mcp add doktor -e DOKTOR_MCP_DEFAULT_SOURCE_MODE=live -- npx -y doktor-mcp
+```
+
+Cache files are written to the user's cache directory: `DOKTOR_MCP_CACHE_DIR` if set,
+otherwise `$XDG_CACHE_HOME/doktor-mcp` or `~/.cache/doktor-mcp`.
+
+### Source mode
+
 `sourceMode` defaults to `"mock"`: if `sourceMode` is not specified in the tool call, the
 response contains fixture (fictional) data and the `mockDataWarning` field is added.
 
@@ -689,8 +703,8 @@ The second option makes `"live"` the default for all tool calls, so you do not n
 {
   "mcpServers": {
     "doktor-mcp": {
-      "command": "node",
-      "args": ["dist/mcp/server.js"],
+      "command": "npx",
+      "args": ["-y", "doktor-mcp"],
       "env": {
         "DOKTOR_MCP_DEFAULT_SOURCE_MODE": "live"
       }

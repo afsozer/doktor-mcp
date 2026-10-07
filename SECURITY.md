@@ -21,8 +21,8 @@ reproduce the problem and explains what an attacker could achieve with it. A
 working exploit is not required; a clear description is enough.
 
 Physicians' questions may contain patient details, so a way for personal or
-health data in a question to leak into logs, the `.cache/` directory or an
-output pack is treated as a security issue.
+health data in a question to leak into logs, the cache directory
+(`~/.cache/doktor-mcp` by default) or an output pack is treated as a security issue.
 
 ## What to expect
 
@@ -43,8 +43,8 @@ Doktor MCP is in beta. Security fixes are made on the latest version only.
 
 | Version         | Supported |
 | --------------- | --------- |
-| 0.58.x (beta)   | Yes       |
-| < 0.58          | No        |
+| 0.59.x (beta)   | Yes       |
+| < 0.59          | No        |
 
 ## Scope
 
@@ -77,7 +77,7 @@ Güvenlik açıklarını herkese açık issue olarak değil, deponun **Security*
 sekmesindeki **Report a vulnerability** bağlantısıyla ya da konu satırı
 `[SECURITY] doktor-mcp` ile başlayan bir e-postayla bilgi@avfatihsozer.com
 adresine bildirin. Sorulardaki kişisel ya da sağlık verisinin günlüklere,
-önbelleğe veya çıktı paketine sızması da güvenlik açığı sayılır. Bildirimler
+önbellek dizinine veya çıktı paketine sızması da güvenlik açığı sayılır. Bildirimler
 3 iş günü içinde yanıtlanır; düzeltme yayımlandıktan sonra GitHub güvenlik
 duyurusu çıkar ve uygunsa CVE istenir. Testleri yalnızca kendi kurulumunuzda
 yapın.

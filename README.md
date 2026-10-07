@@ -598,7 +598,7 @@ döndürür. `pickHealthLawQueries`, çok-terimli aramalar için en fazla N adet
 ### Dosya-Tabanlı Önbellek
 
 `PrecedentCache` (`src/sources/precedentCache.ts`), canlı adaptör sonuçlarını bir saatlik TTL
-ile `.cache/precedents/`'e önbelleğe alır. Önbellek dosyaları kaynak, sorgu ve sayfa boyutuna
+ile önbellek dizinindeki `precedents/` altına (varsayılan `~/.cache/doktor-mcp/precedents/`) önbelleğe alır. Önbellek dosyaları kaynak, sorgu ve sayfa boyutuna
 göre anahtarlanır. Önbellek yazma hataları ölümcül değildir.
 
 `smoke:precedents` üç önbellek bayrağını destekler:
@@ -614,7 +614,7 @@ npm run smoke:precedents -- "aydınlatılmış rıza" --no-cache
 npm run smoke:precedents -- "aydınlatılmış rıza" --refresh
 ```
 
-`.cache/`, `.gitignore`'dadır ve asla commit edilmez.
+Önbellek depo dışında tutulur; eski sürümlerin kullandığı `.cache/` `.gitignore`'da durmaya devam ediyor.
 
 ## Emsal Kaynak Kalibrasyonu
 
@@ -672,6 +672,20 @@ Tam kontrol referansı için `docs/PACK_AUDIT.md`.
 
 ## Üretim Kurulumu
 
+### npm ile kurulum
+
+Node.js 20 ya da üstü gerekir. Paketi kurmadan `npx` ile çalıştırabilirsiniz. Claude Code'a
+eklemek için:
+
+```bash
+claude mcp add doktor -e DOKTOR_MCP_DEFAULT_SOURCE_MODE=live -- npx -y doktor-mcp
+```
+
+Önbellek dosyaları kullanıcının önbellek dizinine yazılır: `DOKTOR_MCP_CACHE_DIR` verilmişse
+oraya, yoksa `$XDG_CACHE_HOME/doktor-mcp` ya da `~/.cache/doktor-mcp` altına.
+
+### Kaynak modu
+
 `sourceMode` varsayılan olarak `"mock"`'tur — yani tool çağrısında `sourceMode`
 belirtilmezse, yanıt fixture (kurgu) verisi içerir ve `mockDataWarning` alanı eklenir.
 
@@ -689,8 +703,8 @@ Canlı modda çalışmak için iki seçeneğiniz vardır:
 {
   "mcpServers": {
     "doktor-mcp": {
-      "command": "node",
-      "args": ["dist/mcp/server.js"],
+      "command": "npx",
+      "args": ["-y", "doktor-mcp"],
       "env": {
         "DOKTOR_MCP_DEFAULT_SOURCE_MODE": "live"
       }
