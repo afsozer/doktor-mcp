@@ -1,7 +1,6 @@
 # Doktor MCP
 
-> **v1 Sürüm Adayı** — Güncel sürüm için [package.json](package.json) ve [CHANGELOG.md](CHANGELOG.md) dosyalarına bakın.
-> Kontrol listesi için [docs/RELEASE_v1.md](docs/RELEASE_v1.md) dosyasına bakın.
+> **Beta sürüm** — Güncel sürüm için [package.json](package.json) ve [CHANGELOG.md](CHANGELOG.md) dosyalarına bakın.
 
 **Proje sayfası:** [avfatihsozer.com/projeler/doktor-mcp](https://avfatihsozer.com/projeler/doktor-mcp) · English: [README.en.md](README.en.md)
 

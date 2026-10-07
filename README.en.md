@@ -1,7 +1,6 @@
 # Doktor MCP
 
-> **v1 Release Candidate**: See [package.json](package.json) and [CHANGELOG.md](CHANGELOG.md) for the current version.
-> See [docs/RELEASE_v1.md](docs/RELEASE_v1.md) for the checklist.
+> **Beta**: See [package.json](package.json) and [CHANGELOG.md](CHANGELOG.md) for the current version.
 
 **Project page:** [avfatihsozer.com/en/projects/doktor-mcp](https://avfatihsozer.com/en/projects/doktor-mcp) · Türkçe: [README.md](README.md)
 

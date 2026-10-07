@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased]
+
+- **Lisans AGPL-3.0-only oldu (7 Eki 2026).** "Tüm hakları saklıdır" yerine GNU Affero Genel
+  Kamu Lisansı sürüm 3 (`LICENSE`); `package.json` ve README'ler güncellendi.
+- **`SECURITY.md` eklendi (7 Eki 2026).** Güvenlik bakımcısı, GitHub üzerinden gizli açık bildirimi,
+  yanıt süreleri, koordineli açıklama ve kapsam; sorulardaki kişisel/sağlık verisinin sızması da kapsamda.
+- **README'de durum notu "v1 sürüm adayı" yerine "beta" (7 Eki 2026).**
+
 ## [0.58.0] — 2026-06-10 — E0–E7: Dokümantasyon ve Sürüm Senkronizasyonu
 
 > E0–E7 fazlarının tamamının dokümantasyonu ve sürüm senkronizasyonu.
