@@ -1,0 +1,24 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.afsozer/doktor-mcp",
+  "title": "Doktor",
+  "description": "Turkish health law for physicians: official legislation and high court decisions, source-grounded.",
+  "repository": {
+    "url": "https://github.com/afsozer/doktor-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://avfatihsozer.com/projeler/doktor-mcp",
+  "version": "0.59.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "doktor-mcp",
+      "version": "0.59.1",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}

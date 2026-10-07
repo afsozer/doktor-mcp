@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.59.1] — 2026-10-07 — MCP Registry kaydı
+
+- **Resmî MCP Registry.** `package.json`'a `mcpName: io.github.afsozer/doktor-mcp` sahiplik alanı,
+  depoya `server.json` eklendi; sunucu kayıtta `npx -y doktor-mcp` ile kurulur. Kod değişikliği yok.
+
 ## [0.59.0] — 2026-10-07 — Açık kaynak ve npm paketi
 
 - **npm paketi.** `npx -y doktor-mcp`; pakete yalnız `dist/`, README'ler, lisans, güvenlik ve
