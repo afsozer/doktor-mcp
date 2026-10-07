@@ -40,7 +40,8 @@
     "test:watch": "vitest",
     "doctor:diagnose": "tsx src/doctorDiagnoseCli.ts",
     "docs:coverage-matrix": "tsx src/generateCoverageMatrixCli.ts > docs/COVERAGE_MATRIX.md",
-    "prepublishOnly": "npm run build && npm test"
+    "prepublishOnly": "npm run build && npm run test:ci",
+    "test:ci": "vitest run --config vitest.ci.config.ts"
   },
   "keywords": [
     "mcp",
