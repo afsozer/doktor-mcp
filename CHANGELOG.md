@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.59.2] - 2026-10-23 - Atıf künyesi ve Zenodo DOI
+
+- **Atıf künyesi.** `CITATION.cff` (GitHub "Cite this repository") ve `.zenodo.json` (Zenodo
+  arşivi ve DOI) eklendi. Kod ve araç sözleşmeleri değişmedi.
+
 ## [0.59.1] — 2026-10-07 — MCP Registry kaydı
 
 - **Resmî MCP Registry.** `package.json`'a `mcpName: io.github.afsozer/doktor-mcp` sahiplik alanı,

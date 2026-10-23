@@ -1,0 +1,27 @@
+{
+  "title": "Doktor MCP: source-grounded legal information MCP server for physicians",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "Sözer, Alpaslan Fatih"
+    }
+  ],
+  "description": "<p>Doktor MCP is a Model Context Protocol (MCP) server that produces source-grounded legal information packs for physicians. It matches questions on patient rights, informed consent and personal health data only with official Turkish legislation text and reasoned high court decisions; general internet articles, blogs, news and forums are not source inputs. It does not give categorical final legal opinions or tell the physician what to do. When an official source cannot be retrieved or a mapped provision cannot be extracted, it returns a structured unavailable result instead of producing content.</p><p>Doktor MCP, hekimlere yönelik kaynak temelli hukuki bilgilendirme paketleri üreten bir MCP sunucusudur. Hasta hakları, aydınlatılmış onam ve sağlık verisi sorularını yalnız resmi mevzuat metniyle ve gerekçeli yüksek mahkeme kararlarıyla eşleştirir; kategorik nihai hukuki görüş vermez, hekime ne yapacağını söylemez. Resmi kaynak alınamazsa ya da ilgili madde çıkarılamazsa hüküm üretmek yerine bunu yapılandırılmış biçimde bildirir.</p>",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "health-law",
+    "turkish-law",
+    "physicians",
+    "patient-rights",
+    "informed-consent"
+  ],
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/afsozer/doktor-mcp",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

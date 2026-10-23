@@ -1,6 +1,6 @@
 {
   "name": "doktor-mcp",
-  "version": "0.59.1",
+  "version": "0.59.2",
   "description": "MCP server that matches physicians' legal questions with official Turkish legislation and reasoned high court decisions, as source-grounded information packs.",
   "mcpName": "io.github.afsozer/doktor-mcp",
   "type": "module",

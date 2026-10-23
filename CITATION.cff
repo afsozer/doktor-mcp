@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "Bu yazılımı kullanırsanız lütfen aşağıdaki künyeyle atıf yapın. If you use this software, please cite it as below."
+type: software
+title: "Doktor MCP"
+abstract: >-
+  Source-grounded legal information MCP server for physicians. It matches
+  questions on patient rights, informed consent and personal health data only
+  with official Turkish legislation text and reasoned high court decisions.
+  It does not give categorical final legal opinions; when an official source
+  cannot be retrieved or a provision cannot be extracted, it returns a
+  structured "unavailable" result instead of producing content.
+authors:
+  - family-names: "Sözer"
+    given-names: "Alpaslan Fatih"
+version: "0.59.2"
+date-released: "2026-10-23"
+license: AGPL-3.0-only
+repository-code: "https://github.com/afsozer/doktor-mcp"
+keywords:
+  - mcp
+  - model-context-protocol
+  - health-law
+  - turkish-law
+  - physicians
+  - patient-rights
+  - informed-consent
