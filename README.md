@@ -2,6 +2,8 @@
 
 > **Beta sürüm** — Güncel sürüm için [package.json](package.json) ve [CHANGELOG.md](CHANGELOG.md) dosyalarına bakın.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23603011.svg)](https://doi.org/10.5281/zenodo.23603011)
+
 **Proje sayfası:** [avfatihsozer.com/projeler/doktor-mcp](https://avfatihsozer.com/projeler/doktor-mcp) · English: [README.en.md](README.en.md)
 
 `doktor-mcp`, hekimlere yönelik **kaynak-temelli hukuki bilgilendirme paketleri** üreten,

@@ -2,6 +2,8 @@
 
 > **Beta**: See [package.json](package.json) and [CHANGELOG.md](CHANGELOG.md) for the current version.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23603011.svg)](https://doi.org/10.5281/zenodo.23603011)
+
 **Project page:** [avfatihsozer.com/en/projects/doktor-mcp](https://avfatihsozer.com/en/projects/doktor-mcp) · Türkçe: [README.md](README.md)
 
 `doktor-mcp` is a standalone TypeScript/Node.js MCP scaffold that produces **source-grounded legal
